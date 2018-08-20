@@ -1,0 +1,22 @@
+public class Recursion2
+{
+    public boolean groupSum(int start, int[] nums, int target) {
+        if(start == nums.length && target ==0) return true;
+        if(start == nums.length && target !=0) return false;
+        return groupSum(start+1,nums,target-nums[start])||groupSum(start+1,nums,target);
+    }
+
+    public boolean groupSum6(int start, int[] nums, int target) {
+        if(start == nums.length && target ==0) return true;
+        if(start == nums.length && target !=0) return false;
+        if(nums[start] == 6){
+            return groupSum6(start+1,nums,target-nums[start]);
+        }
+        return groupSum6(start+1,nums,target-nums[start])||groupSum6(start+1,nums,target);
+    }
+
+    public boolean groupNoAdj(int start, int[] nums, int target) {
+        if(start>=nums.length) return target==0;
+        return groupNoAdj(start+2,nums, target-nums[start]) || groupNoAdj(start+1, nums, target);
+    }
+}
