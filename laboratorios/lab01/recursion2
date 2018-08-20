@@ -19,4 +19,17 @@ public class Recursion2
         if(start>=nums.length) return target==0;
         return groupNoAdj(start+2,nums, target-nums[start]) || groupNoAdj(start+1, nums, target);
     }
+    public boolean groupNoAdj(int start, int[] nums, int target) {
+       if(start>=nums.length) return target==0;
+       return groupNoAdj(start+2,nums, target-nums[start]) || groupNoAdj(start+1, nums, target);
+    }
+    
+    public boolean splitArray(int grup1, int grup2, int[] nums, int contador){
+      if(contador>= nums.length)
+     return grup1==grup2;
+  
+      return splitArray(grup1+nums[contador], grup2, nums, contador+1) ||
+             splitArray(grup1, grup2+nums[contador], nums, contador+1);
+  
+    }
 }
