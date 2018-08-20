@@ -1,0 +1,40 @@
+public class Recursion2
+{
+    public boolean groupSum(int start, int[] nums, int target) {
+        if(start == nums.length && target ==0) return true;
+        if(start == nums.length && target !=0) return false;
+        return groupSum(start+1,nums,target-nums[start])||groupSum(start+1,nums,target);
+    }
+     public boolean groupSum6(int start, int[] nums, int target) {
+        if(start == nums.length && target ==0) return true;
+        if(start == nums.length && target !=0) return false;
+        if(nums[start] == 6){
+            return groupSum6(start+1,nums,target-nums[start]);
+        }
+        return groupSum6(start+1,nums,target-nums[start])||groupSum6(start+1,nums,target);
+    }
+     public boolean groupNoAdj(int start, int[] nums, int target) {
+        if(start>=nums.length) return target==0;
+        return groupNoAdj(start+2,nums, target-nums[start]) || groupNoAdj(start+1, nums, target);
+    }
+    
+    public boolean splitArray(int grup1, int grup2, int[] nums, int contador){
+      if(contador>= nums.length)
+     return grup1==grup2;
+  
+      return splitArray(grup1+nums[contador], grup2, nums, contador+1) ||
+             splitArray(grup1, grup2+nums[contador], nums, contador+1);
+  
+    }
+    public boolean groupSum5(int start, int[] nums, int target) {
+          if(start == nums.length && target ==0) return true;
+        if(start == nums.length && target !=0) return false;
+        if(nums[start]%5 == 0){
+          if(start < nums.length-1 && nums[start+1] == 1){
+            groupSum5(start+2,nums,target);
+          }
+            return groupSum5(start+1,nums,target-nums[start]);
+        }
+        return groupSum5(start+1,nums,target-nums[start])||groupSum5(start+1,nums,target);
+    }
+}
