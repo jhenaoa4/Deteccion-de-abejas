@@ -1,0 +1,32 @@
+public class punto1
+{
+    public static void sort(int [] a){
+        for (int x = 0; x < a.length; x++){ 
+            int aux;                         
+            for(int y = a.length-1; y > x ; y--){  
+                if(a[y]<a[x]){   
+                    aux = a[y]; 
+                    a[y]=a[x];            
+                    a[x]=aux;              
+                }
+            }
+        }
+        //for (int x = 0; x< a.length; x++){
+          //  System.out.print(a[x]+ " ");
+        //}
+    }
+
+    public static void main(String[] args){
+        for (int i = 1000; i <= 20000; i = i + 1000){
+            int[] a = new int[i];
+            for (int j = 0; j < i; j++ ){
+                int x = (int) (Math.random() * i);
+                a[j] = x;
+            }
+            long start = System.currentTimeMillis();
+            sort(a);
+            long fin = System.currentTimeMillis();       
+            System.out.println(fin-start);
+        }
+    }
+}
