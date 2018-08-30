@@ -1,15 +1,16 @@
-public class MiArrayList {
+public class ArrayList
+{
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
-    private Integer elements[]; 
+    private int elements[]; 
 
     /**
      * El metodo constructor se utiliza para incializar
      * variables a valores neutros como 0 o null.
      * El contructor no lleva parámetros en este caso.
      */
-    public MiArrayList() {
-        elements = new Integer[DEFAULT_CAPACITY];
+    public ArrayList() {
+        elements = new int[DEFAULT_CAPACITY];
         size =0;
     }     
 
@@ -28,13 +29,20 @@ public class MiArrayList {
      * Agrega un elemento e a la última posición de la lista
      *
      */
-    public void add(Integer e) {
+    public void add(int e) {
         for(int i = 0; i <= elements.length; i++){
-            if(elements[i] == null){
-                elements[i] = e;
-                break;
-            } else if (i == elements.length){
-                elements = new Integer[DEFAULT_CAPACITY*2];
+            if (i == elements.length-1){
+                int [] temp  = elements;
+                elements = new int[DEFAULT_CAPACITY*2];
+                for(int j = 0; j < DEFAULT_CAPACITY; j++){
+                    elements[j] = temp[j];
+                }
+            }
+                if(elements[i] == 0){
+                    elements[i] = e;
+                    size++;
+                    break;
+                
             }
         }
     }    
@@ -44,7 +52,7 @@ public class MiArrayList {
      * Retorna el elemento que se encuentra en la posición i de la lista.
      *
      */
-    public Integer get(int i) {
+    public int get(int i) {
         return elements[i];
     }
 
@@ -54,16 +62,22 @@ public class MiArrayList {
      * Agrega un elemento e en la posición index de la lista
      *
      */
-    public void add(int index, Integer e) {
+    public void add(int index, int e) {
+        size++;
         for(int i = index; i< elements.length; i++){
             if (i == elements.length-1){
-                elements = new Integer[DEFAULT_CAPACITY*2];
-            } else if(elements[i] == null){
-                break;
+                int [] temp  = elements;
+                elements = new int[DEFAULT_CAPACITY*2];
+                for(int j = 0; j < DEFAULT_CAPACITY; j++){
+                    elements[j] = temp[j];
+                }
+            } 
+            if(elements[i] == 0){
+               break;
             } else {
-                Integer t = elements[i];
+                int temp = elements[i];
                 elements[index] = e;
-                elements[i+1] = t;
+                elements[i] = temp;
             }
         }
     } 
@@ -75,23 +89,10 @@ public class MiArrayList {
      *
      */
     public void del(int index){
+        size--;
+        elements[index] = 0;
         for(int i = index; i < elements.length-1; i++){
             elements[i] = elements[i+1];
         }
     }
-    
-    public class Integer
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Integer
-     */
-    public Integer(int x)
-    {
-        this.x = x;
-    }
-
-    
 }
