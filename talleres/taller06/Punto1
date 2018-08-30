@@ -63,12 +63,12 @@ public class ArrayList
      *
      */
     public void add(int index, int e) {
-        size++;
-        for(int i = index; i< elements.length; i++){
+        size++;   // c1
+        for(int i = index; i< elements.length; i++){   // n
             if (i == elements.length-1){
                 int [] temp  = elements;
-                elements = new int[DEFAULT_CAPACITY*2];
-                for(int j = 0; j < DEFAULT_CAPACITY; j++){
+                elements = new int[DEFAULT_CAPACITY*2];  // c2
+                for(int j = 0; j < DEFAULT_CAPACITY; j++){ // n*n
                     elements[j] = temp[j];
                 }
             } 
@@ -96,3 +96,4 @@ public class ArrayList
         }
     }
 }
+/** t(n)= O(n^2)
