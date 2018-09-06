@@ -1,0 +1,62 @@
+public class Array2
+{
+    public int sum13(int[] nums) {
+        int sum = 0;
+        for(int i = 0; i< nums.length; i++){
+            if(nums[i] == 13 ){
+                i= i+1;
+            } else {
+                sum += nums[i];
+            }
+        }
+        return sum;
+    }
+
+    public int centeredAverage(int[] nums) {
+        int sum = 0;
+        int max=nums[0];
+        int min=nums[0];
+        int maxi=0;
+        int mini=0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] > max){
+                max=nums[i];
+                maxi = i;
+            }
+            if(nums[i] <= min){
+                min = nums[i];
+                mini=i;
+            }
+        }
+
+        for(int i = 0; i < nums.length; i++){
+            if(i != maxi && i != mini) sum += nums[i];
+        }
+        return sum/(nums.length-2);
+    }
+
+    public int countEvens(int[] nums) {
+        int cont = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i]%2 == 0) cont++;
+        }
+        return cont;
+    }
+
+    public int bigDiff(int[] nums) {
+        int max=nums[0];
+        int min=nums[0];
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] > max)max=nums[i];
+            if(nums[i] <= min)min=nums[i];
+        }
+        return max - min;
+    }
+
+    public boolean lucky13(int[] nums) {
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 1 || nums[i] == 3) return false;
+        }
+        return true;
+    }
+}
