@@ -47,3 +47,36 @@ public class Array3
         return nums;
     }
 }
+
+public boolean canBalance(int[] nums) {
+int lSum = 0;
+  for (int i = 0; i < nums.length; i++) {
+    lSum += nums[i];
+    int rSum = 0;
+    for (int j = nums.length-1; j > i; j--) {
+      rSum += nums[j];
+    }
+    if (rSum == lSum)
+      return true;
+  }
+  return false;
+}
+
+
+public int maxMirror(int[] nums) {
+  int max = 0;
+  for(int x = 0; x < nums.length; x++) {
+  int cont = 0;
+  for(int y = nums.length - 1; y >= 0 && x + cont < nums.length; y--) {
+    if(nums[x + cont] == nums[y]) {
+    cont++;}
+    else {
+    max = Math.max(max, cont);
+    cont = 0;
+  }
+}
+   max = Math.max(max, cont);
+ }
+
+ return max;
+}
