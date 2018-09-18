@@ -1,0 +1,13 @@
+public void insert(int data, int index)
+    {
+        if(size == 0){
+         Node nue = new Node(data);
+         first = nue;
+        }else{
+        Node temp = getNode(index-1);
+        Node nuevo = new Node(data);
+        nuevo.next = temp.next;
+        temp.next = nuevo;
+        size++; 
+    }
+}
