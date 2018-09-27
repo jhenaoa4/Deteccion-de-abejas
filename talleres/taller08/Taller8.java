@@ -35,7 +35,7 @@ public class Taller8 {
      */
     public static void cola (Queue<String> queue){
         while(queue.size()>0){
-            System.out.println("Atendiendo a: "+queue.poll());
+            System.out.println("Se atiende a: "+queue.poll());
         }
     }
 
