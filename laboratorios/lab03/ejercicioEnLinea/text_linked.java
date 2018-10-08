@@ -4,7 +4,7 @@ import java.util.*;
 /**
  *Text
  * 
- * @author Santiago Isaza Cadavid and Hamilton Smith Gómez Osorio 
+ * @author Tomado de Santiago Isaza y Hamilton Smith Gómez Osorio 
  * @version October 2018
  */
 public class text_linked
