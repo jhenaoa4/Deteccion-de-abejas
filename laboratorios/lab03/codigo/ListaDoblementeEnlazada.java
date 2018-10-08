@@ -1,5 +1,6 @@
-import java.lang.IndexOutOfBoundsException; // Usar esto cuando se salga el índice
-// Una lista simplemente enlazada
+import java.lang.IndexOutOfBoundsException; 
+
+//Punto 1.4
 public class ListaDoblementeEnlazada {
     private NodeD first;
     private int size;
