@@ -24,7 +24,7 @@ public class Laboratory1
     }
 
     /**
-     * TRABAJO REFERENCIADO DE: Isabel Urrego Y Juliana Lalinde. 
+     * TRABAJO REFERENCIADO DE: Isabel Urrego Y Juliana Lalinde. (solo este metodo)
      * Punto 1.2
      */
     public static int pivot (List<Integer> lista) {
@@ -57,8 +57,9 @@ public class Laboratory1
             System.out.println("Se atiende a: "+queue.poll());
         }
     }
-
-    public static void ejercicio4( Stack <Nevera> n, Queue<Solicitud> s){
+    
+    //Punto 1.3
+    public static void ejercicio3( Stack <Nevera> n, Queue<Solicitud> s){
         Stack <Nevera> ayuda = new Stack();
         while(n.size() > 0){
             Nevera t = n.pop();
