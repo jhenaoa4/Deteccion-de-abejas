@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * This class contains algorithms for digraphs
  * Adapted from: http://cs.fit.edu/~ryan/java/programs/graph/Dijkstra-java.html
- * @author Mauricio Toro
+ * @author Mauricio Toro & Juliana Henao & Gerónimo Zuluaga
  * @version 1
  */
 public class DigraphAlgorithms
