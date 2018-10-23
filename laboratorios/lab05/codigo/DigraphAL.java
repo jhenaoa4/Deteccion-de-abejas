@@ -5,7 +5,7 @@ import javafx.util.Pair;
 /**
  * Esta clase es una implementación de un digrafo usando listas de adyacencia
  * 
- * @author Hamilton Gomez & Santiago Isaza
+ * @author Juliana Henao & Gerónimo Zuluaga
  * - Tomado del repositorio de Isabela Arango
  * - Plantilla de Mauricio Toro
  * @version 1
