@@ -31,10 +31,9 @@ public class Punto2
         return is? true : false;
     }    
 
-    /* Title: aux
+    /* 
      * Authors: Mesa, Daniel
-     * Date: October 22, 2018
-     * Taken from:https:https://github.com/damesaa201710054010/ST0247-032/blob/master/laboratorios/lab01/ejercicioEnLinea/Ejercicio2.java
+     * Tomado de :https:https://github.com/damesaa201710054010/ST0247-032/blob/master/laboratorios/lab01/ejercicioEnLinea/Ejercicio2.java
      */
     private boolean aux(int [][] graph, int [] color)
     {
@@ -56,10 +55,9 @@ public class Punto2
         return true;
     }
 
-    /* Title: esColoreable
+    /* 
      * Authors: Mesa, Daniel
-     * Date: October 22, 2018
-     * Taken from:https:https://github.com/damesaa201710054010/ST0247-032/blob/master/laboratorios/lab01/ejercicioEnLinea/Ejercicio2.java
+     * Tomado de:https:https://github.com/damesaa201710054010/ST0247-032/blob/master/laboratorios/lab01/ejercicioEnLinea/Ejercicio2.java
      */
     public static void main(String[] args)
     {
