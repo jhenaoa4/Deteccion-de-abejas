@@ -9,7 +9,7 @@ import java.util.Stack;
  * @author Juliana Henao & Gerónimo Zuluaga
  * @version Noviembre 2018
  */
-public class DetecciónAbejas
+public class DeteccionAbejas
 {
     /**
     * Metodo para aproximar la distancia entre dos abejas roboticas
