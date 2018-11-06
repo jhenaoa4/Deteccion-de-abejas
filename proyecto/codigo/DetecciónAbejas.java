@@ -87,7 +87,7 @@ public class DeteccionAbejas
   
   public static void main(String [] args){
     		
-        Abeja[] arregloDeAbejas = leerArchivo(100);
+        Abeja[] arregloDeAbejas = leerArchivo(1000);
         Stack <Abeja> abejas = hacerPila(arregloDeAbejas);
         long startTime = System.currentTimeMillis();
         collisionDetector(arregloDeAbejas,abejas);
