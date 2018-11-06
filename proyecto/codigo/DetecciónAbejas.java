@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class DeteccionAbejas
     * @return la distancia aproximada entre las dos abejas, aproximando 1 grado como 111111 metros
     */
     public static double distancia(Abeja abeja1, Abeja abeja2){
-        return Math.sqrt(  Math.pow((abeja1.x - abeja2.x)*111111,2) +
+        return Math.sqrt(Math.pow((abeja1.x - abeja2.x)*111111,2) +
             Math.pow((abeja1.y - abeja2.y)*111111,2) +
             Math.pow(abeja1.z - abeja2.z,2)
         );
@@ -82,8 +81,8 @@ public class DeteccionAbejas
             Abeja actual = abejas.pop();
             for(int i = 0; i < arregloDeAbejas.length; i++){
                 if(distancia(arregloDeAbejas[i], actual) >= 100){
-                     abejasConRiesgoDeColision.add(arregloDeAbejas[i]);
-                     abejasConRiesgoDeColision.add(actual);
+                    abejasConRiesgoDeColision.add(actual);    
+                    break;
                     //System.out.println(arregloDeAbejas[i].x + ", " + arregloDeAbejas[i].y + ", " + arregloDeAbejas[i].z + " colisiona con: " + actual.x +", " + actual.y +", " +actual.z);
                 }
             }
@@ -91,6 +90,12 @@ public class DeteccionAbejas
         return abejasConRiesgoDeColision;
     }
     
+    /**
+    * Metodo para escribir un archivo con la respuesta
+    *
+    * @param  abejasConRiesgoDeColision  Lista definida con arreglos con las abejas con riesgo de colision
+    * @param  numeroDeAbejas  Numero de abejas del conjunto de datos original
+    */
     public static void guardarArchivo(ArrayList<Abeja> abejasConRiesgoDeColision, int numeroDeAbejas){
           final String nombreDelArchivo = "respuestaConjuntoDeDatosCon"+numeroDeAbejas+"abejas.txt";  
           try {
@@ -116,3 +121,4 @@ public class DeteccionAbejas
         }
           
     }
+
