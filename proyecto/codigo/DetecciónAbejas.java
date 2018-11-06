@@ -90,7 +90,7 @@ public class DeteccionAbejas
         return abejasConRiesgoDeColision;
     }
     
-    public static void guardarArchivo(ArrayList<Abejas> abejasConRiesgoDeColision, int numeroDeAbejas){
+    public static void guardarArchivo(ArrayList<Abeja> abejasConRiesgoDeColision, int numeroDeAbejas){
           final String nombreDelArchivo = "respuestaConjuntoDeDatosCon"+numeroDeAbejas+"abejas.txt";  
           try {
              PrintWriter escritor = new PrintWriter(nombreDelArchivo, "UTF-8");
