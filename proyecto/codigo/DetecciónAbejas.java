@@ -74,15 +74,32 @@ public class DeteccionAbejas
     * @param  arregloDeAbejas  Un conjunto de abejas a evaluar
     * @param  abejas una pila con abejas a evaluar
     */
-    public static void collisionDetector(Abeja[] arregloDeAbejas, Stack <Abeja> abejas){
+    public static ArrayList<Abeja> collisionDetector(Abeja[] arregloDeAbejas, Stack <Abeja> abejas){
+        ArrayList<Abeja> abejasConRiesgoDeColision = new ArrayList();
         while(abejas.size() != 0){
             Abeja actual = abejas.pop();
             for(int i = 0; i < arregloDeAbejas.length; i++){
                 if(distancia(arregloDeAbejas[i], actual) >= 100){
+                     abejasConRiesgoDeColision.add(arregloDeAbejas[i]);
+                     abejasConRiesgoDeColision.add(actual);
                     //System.out.println(arregloDeAbejas[i].x + ", " + arregloDeAbejas[i].y + ", " + arregloDeAbejas[i].z + " colisiona con: " + actual.x +", " + actual.y +", " +actual.z);
                 }
             }
         }
+        return abejasConRiesgoDeColision;
+    }
+    
+    public static void guardarArchivo(ArrayList<Point3D> abejasConRiesgoDeColision, int numeroDeAbejas){
+          final String nombreDelArchivo = "respuestaConjuntoDeDatosCon"+numeroDeAbejas+"abejas.txt";  
+          try {
+             PrintWriter escritor = new PrintWriter(nombreDelArchivo, "UTF-8");
+             for (Point3D abeja : abejasConRiesgoDeColision)
+                escritor.println(abeja.getX()+","+abeja.getY()+","+abeja.getZ());
+             escritor.close();
+          }
+          catch(IOException ioe) {
+              System.out.println("Error escribiendo el archivo de salida");
+          }  
     }
   
   public static void main(String [] args){
@@ -93,6 +110,7 @@ public class DeteccionAbejas
         collisionDetector(arregloDeAbejas,abejas);
         long estimatedTime = System.currentTimeMillis() - startTime;
         System.out.println("El algoritmo tomo un tiempo de: "+estimatedTime+" ms");
+       guardarArchivo(abejasConRiesgoDeColision, numeroDeAbejas);
         }
           
     }
