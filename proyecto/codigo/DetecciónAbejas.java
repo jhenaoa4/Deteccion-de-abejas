@@ -89,11 +89,11 @@ public class DeteccionAbejas
         return abejasConRiesgoDeColision;
     }
     
-    public static void guardarArchivo(ArrayList<Point3D> abejasConRiesgoDeColision, int numeroDeAbejas){
+    public static void guardarArchivo(ArrayList<Abejas> abejasConRiesgoDeColision, int numeroDeAbejas){
           final String nombreDelArchivo = "respuestaConjuntoDeDatosCon"+numeroDeAbejas+"abejas.txt";  
           try {
              PrintWriter escritor = new PrintWriter(nombreDelArchivo, "UTF-8");
-             for (Point3D abeja : abejasConRiesgoDeColision)
+             for (Abeja abeja : abejasConRiesgoDeColision)
                 escritor.println(abeja.getX()+","+abeja.getY()+","+abeja.getZ());
              escritor.close();
           }
@@ -103,14 +103,14 @@ public class DeteccionAbejas
     }
   
   public static void main(String [] args){
-    		
-        Abeja[] arregloDeAbejas = leerArchivo(1000);
+    	int numeroDeAbejas = 1000;
+        Abeja[] arregloDeAbejas = leerArchivo(numeroDeAbejas);
         Stack <Abeja> abejas = hacerPila(arregloDeAbejas);
         long startTime = System.currentTimeMillis();
         collisionDetector(arregloDeAbejas,abejas);
         long estimatedTime = System.currentTimeMillis() - startTime;
         System.out.println("El algoritmo tomo un tiempo de: "+estimatedTime+" ms");
-       guardarArchivo(abejasConRiesgoDeColision, numeroDeAbejas);
+        guardarArchivo(abejasConRiesgoDeColision, numeroDeAbejas);
         }
           
     }
