@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Stack;
 import java.util.ArrayList;
+import java.io.PrintWriter;
 /**
  * Clase para leer archivos con coordenadas de abejas y detectar cuáles de ellas están en riego de colisionar con cuáles 
  *
@@ -95,7 +96,7 @@ public class DeteccionAbejas
           try {
              PrintWriter escritor = new PrintWriter(nombreDelArchivo, "UTF-8");
              for (Abeja abeja : abejasConRiesgoDeColision)
-                escritor.println(abeja.getX()+","+abeja.getY()+","+abeja.getZ());
+                escritor.println(abeja.x+","+abeja.y+","+abeja.z);
              escritor.close();
           }
           catch(IOException ioe) {
@@ -108,7 +109,7 @@ public class DeteccionAbejas
         Abeja[] arregloDeAbejas = leerArchivo(numeroDeAbejas);
         Stack <Abeja> abejas = hacerPila(arregloDeAbejas);
         long startTime = System.currentTimeMillis();
-        collisionDetector(arregloDeAbejas,abejas);
+        ArrayList <Abeja>  abejasConRiesgoDeColision= collisionDetector(arregloDeAbejas,abejas);
         long estimatedTime = System.currentTimeMillis() - startTime;
         System.out.println("El algoritmo tomo un tiempo de: "+estimatedTime+" ms");
         guardarArchivo(abejasConRiesgoDeColision, numeroDeAbejas);
